@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
+<html lang="vi"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebRTC & Network Protocol Lab - Client/Server SDP Architecture</title>
+  <title>WebRTC &amp; Network Protocol Lab - Client/Server SDP Architecture</title>
+  <meta property="og:title" content="WebRTC &amp; Network Protocol Lab">
+  <meta property="og:description" content="Mô hình P2P Real-Time, phân tích SDP, so sánh TCP vs UDP">
+  <meta property="og:url" content="https://2431540234-arch.github.io/testLTM/">
+  <meta property="og:image" content="https://2431540234-arch.github.io/testLTM/qr.png">
   <style>
     :root {
       --bg-main: #0f172a;
@@ -89,12 +93,27 @@
 <body>
 
   <header>
-    <div class="header-title">🌐 WebRTC & Network Protocol Lab</div>
-    <div class="header-sub">Mô hình Truyền nhận P2P Real-Time, Phân tích SDP & So sánh TCP vs UDP trên Trình Duyệt Web</div>
+    <div style="display:flex; align-items:center; gap:10px; justify-content:center;">
+    <img src="test-LTM.jpg" alt="Ảnh" style="width:60px; height:60px; border-radius:50%; object-fit:cover;">
+    <div> HOT BOY CÀ MAU</div>
+  </div>
+    <div class="header-title">🌐 WebRTC &amp; Network Protocol Lab</div>
+    <div class="header-sub">Mô hình Truyền nhận P2P Real-Time, Phân tích SDP &amp; So sánh TCP vs UDP trên Trình Duyệt Web</div>
+    <div id="qr" style="display:flex; justify-content:center; margin-top:12px;"></div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script>
+      new QRCode(document.getElementById("qr"), {
+        text: "https://2431540234-arch.github.io/testLTM/",
+        width: 140,
+        height: 140,
+        colorDark: "#000000",
+        colorLight: "#ffffff"
+      });
+    </script>
   </header>
 
   <nav class="nav-tabs">
-    <button class="tab-btn active" onclick="switchTab('tab1', event)">1. Kiến Trúc & Phân Tách SDP</button>
+    <button class="tab-btn active" onclick="switchTab('tab1', event)">1. Kiến Trúc &amp; Phân Tách SDP</button>
     <button class="tab-btn" onclick="switchTab('tab2', event)">2. Phòng Thực Hành P2P Chat</button>
     <button class="tab-btn" onclick="switchTab('tab3', event)">3. Cơ Chế Signaling Tự Động Trong Thực Tế</button>
   </nav>
@@ -106,7 +125,7 @@
         <div>
           <div class="card">
             <div class="card-title">
-              <span>Sơ Đồ Truyền Nhận SDP & ICE Candidates</span>
+              <span>Sơ Đồ Truyền Nhận SDP &amp; ICE Candidates</span>
               <span class="badge badge-blue">WebRTC Architecture</span>
             </div>
             <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.5;">
@@ -116,7 +135,7 @@
               <div class="step-num">1</div>
               <div class="step-text">
                 <h5>Peer A khởi tạo OFFER (SDP)</h5>
-                <p>Khởi tạo RTCPeerConnection & DataChannel. Thu thập các giao thức mã hóa & Capabilities.</p>
+                <p>Khởi tạo RTCPeerConnection &amp; DataChannel. Thu thập các giao thức mã hóa &amp; Capabilities.</p>
               </div>
             </div>
             <div class="flow-step">
@@ -157,7 +176,7 @@
               <span class="badge badge-purple">Parser Tool</span>
             </div>
             <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
-              Dán đoạn mã SDP (Offer/Answer) vào ô bên dưới để soi trực quan các thông số tầng Transport & Application:
+              Dán đoạn mã SDP (Offer/Answer) vào ô bên dưới để soi trực quan các thông số tầng Transport &amp; Application:
             </p>
             <textarea id="sdpInspectorInput" rows="4" placeholder="Dán chuỗi Signal SDP tại đây để phân tích..." oninput="parseSDP()"></textarea>
             
@@ -170,9 +189,9 @@
           </div>
         </div>
       </div>
-		<div><p>==> Link tham khảo thêm về WebRTC  
-				</br>1.  <a href="https://www.youtube.com/watch?v=FExZvpVvYxA&t=12s">https://www.youtube.com/watch?v=FExZvpVvYxA&t=12s</a> 
-				</br>2.  <a href="https://www.youtube.com/watch?v=2Z2PDsqgJP8">https://www.youtube.com/watch?v=2Z2PDsqgJP8</a> 
+		<div><p>==&gt; Link tham khảo thêm về WebRTC  
+				<br>1.  <a href="https://www.youtube.com/watch?v=FExZvpVvYxA&amp;t=12s">https://www.youtube.com/watch?v=FExZvpVvYxA&amp;t=12s</a> 
+				<br>2.  <a href="https://www.youtube.com/watch?v=2Z2PDsqgJP8">https://www.youtube.com/watch?v=2Z2PDsqgJP8</a> 
 			</p>
 		</div>
     </div>
@@ -185,17 +204,17 @@
           <div>
             <strong style="color: var(--accent-blue); font-size: 0.85rem;">Trường hợp 1: Chạy trên 2 Tab (Localhost)</strong>
             <ol>
-              <li>LƯU Ý: Cần có Webserver để thực hành ==> xem Cài WebServer trên VSCode tại link này nhé https://www.youtube.com/watch?v=E2sRb9kjHaM .</li>
+              <li>LƯU Ý: Cần có Webserver để thực hành ==&gt; xem Cài WebServer trên VSCode tại link này nhé https://www.youtube.com/watch?v=E2sRb9kjHaM .</li>
               <li>Mở trang này trên 2 Tab trình duyệt riêng biệt (Tab A và Tab B).</li>
               <li>Trên <b>Tab A</b>: Bấm <b>1. Tạo OFFER Signal</b> $\rightarrow$ Copy mã trong khung.</li>
-              <li>Trên <b>Tab B</b>: Dán vào khung Signal Nhận $\rightarrow$ Bấm <b>2. Chấp Nhận & Kết Nối</b>.</li>
+              <li>Trên <b>Tab B</b>: Dán vào khung Signal Nhận $\rightarrow$ Bấm <b>2. Chấp Nhận &amp; Kết Nối</b>.</li>
               <li>Copy mã ANSWER vừa xuất hiện ở Tab B dán ngược lại khung Signal Nhận của <b>Tab A</b> $\rightarrow$ Bấm Kết Nối.</li>
             </ol>
           </div>
           <div>
             <strong style="color: var(--accent-green); font-size: 0.85rem;">Trường hợp 2: Chạy trên 2 Máy tính (Mạng LAN Wifi)</strong>
             <ol>
-              <li>Mở file HTML này trên Máy A và Máy B (cùng nối 1 Wifi/Router LAN). Máy A & B cùng truy cập vào link https://vqhungnew.github.io/WebRTC/index.html </li>
+              <li>Mở file HTML này trên Máy A và Máy B (cùng nối 1 Wifi/Router LAN). Máy A &amp; B cùng truy cập vào link https://vqhungnew.github.io/WebRTC/index.html </li>
               <li>Làm quy trình gửi Signal tương tự như trên qua <b>Zalo/Messenger/Email</b>.</li>
               <li><b>LƯU Ý QUAN TRỌNG:</b> Sau khi bấm "Tạo OFFER", cần <b>chờ 2-3 giây</b> để trình duyệt quét địa chỉ IP LAN (ICE Candidates) trước khi copy gửi đi!</li>
             </ol>
@@ -213,7 +232,7 @@
 
           <div style="margin-bottom: 1rem;">
             <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Mã Signal Của Bạn (Gửi cho đối phương):</label>
-            <textarea id="localSignal" rows="4" readonly placeholder="Bấm nút 'Tạo OFFER' bên dưới để sinh mã..."></textarea>
+            <textarea id="localSignal" rows="4" readonly="readonly" placeholder="Bấm nút 'Tạo OFFER' bên dưới để sinh mã..."></textarea>
             <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
               <button class="btn btn-block" onclick="createOffer()">1. Tạo OFFER Signal</button>
               <button class="btn btn-secondary" onclick="copyLocalSignal()">Copy Signal</button>
@@ -223,7 +242,7 @@
           <div>
             <label style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.25rem;">Nhập Signal Từ Đối Phương:</label>
             <textarea id="remoteSignal" rows="4" placeholder="Dán mã OFFER hoặc ANSWER từ máy đối phương vào đây..."></textarea>
-            <button class="btn btn-success btn-block" style="margin-top: 0.5rem;" onclick="processRemoteSignal()">2. Chấp Nhận & Kết Nối (Accept Signal)</button>
+            <button class="btn btn-success btn-block" style="margin-top: 0.5rem;" onclick="processRemoteSignal()">2. Chấp Nhận &amp; Kết Nối (Accept Signal)</button>
           </div>
         </div>
 
@@ -275,7 +294,7 @@
 
       <div class="card">
         <div class="card-title">
-          <span>Nhật Ký Sự Kiện Hệ Thống & WebRTC Stats Log</span>
+          <span>Nhật Ký Sự Kiện Hệ Thống &amp; WebRTC Stats Log</span>
           <button class="btn btn-secondary" style="font-size: 0.7rem; padding: 0.2rem 0.5rem;" onclick="clearLogs()">Xóa Log</button>
         </div>
         <div class="log-box" id="sysLogs"></div>
@@ -596,5 +615,6 @@
       });
     }
   </script>
-</body>
-</html>
+
+
+</body></html>
